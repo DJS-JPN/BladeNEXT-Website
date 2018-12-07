@@ -1,106 +1,49 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-tile
-          v-for="(item, i) in items"
-          :to="item.to"
-          :key="i"
-          router
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon" />
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title" />
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-toolbar-side-icon @click="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'" />
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title"/>
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
+    <v-toolbar>
+      <v-toolbar-title>BladeNEXT</v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
-    <v-navigation-drawer
-      :right="right"
-      v-model="rightDrawer"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-tile @click.native="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :fixed="fixed"
-      app
-    >
-      <span>&copy; 2017</span>
+    <v-footer 
+      dark 
+      height="auto">
+      <v-card 
+        class="text-xs-center">
+        <v-card-text>
+          <v-btn
+            v-for="(item, i) in items"
+            :to="item.to"
+            :key="i"
+            icon
+            class="mx-3 white--text"
+          >
+            <v-icon size="24px">{{ item.icon }}</v-icon>
+          </v-btn>
+        </v-card-text>
+        <v-card-text class="white--text pt-0">
+          Klasaとdiscord.jsを利用した最高のボット(?)、多機能目指して制作しています。困った事などがあればDiscordへ参加して気軽に聞いて下さい;) BladeNEXTをより良いボットに成長させるにはあなたの協力が必要です。
+        </v-card-text>
+        <v-divider/>
+        <v-card-text class="white--text">
+          &copy;2018 — <strong>DJS-JPN Unoffical</strong>
+        </v-card-text>
+      </v-card>
     </v-footer>
   </v-app>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        clipped: false,
-        drawer: true,
-        fixed: false,
-        items: [
-          { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
-        ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Vuetify.js'
-      }
+export default {
+  data() {
+    return {
+      items: [
+        { icon: 'home', to: '/' },
+        { icon: 'textsms', to: 'https://discord.gg/DbTpjXV' },
+        { icon: 'label', to: 'https://github.com/DJS-JPN/Blade-NEXT/releases' }
+      ]
     }
   }
+}
 </script>
