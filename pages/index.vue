@@ -14,6 +14,7 @@
         >
           招待
         </v-btn>
+        <v-btn href="bot/status">a</v-btn>
       </v-flex>
     </v-layout>
   </v-parallax>
