@@ -14,7 +14,11 @@
         >
           招待
         </v-btn>
-        <v-btn href="bot/status">a</v-btn>
+        <v-btn 
+          class="mx-0" 
+          color="primary" 
+          href="bot/status" 
+          large>ステータス</v-btn>
       </v-flex>
     </v-layout>
   </v-parallax>

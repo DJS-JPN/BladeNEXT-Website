@@ -7,7 +7,7 @@
 export default {
   data() {
     return {
-      data: ''
+      data: null
     }
   },
   async asyncData({ app }) {
