@@ -2,7 +2,6 @@
   <h1>{{ data }}</h1>
 </template>
 
-
 <script>
 export default {
   data() {
